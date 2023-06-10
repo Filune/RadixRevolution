@@ -2,19 +2,20 @@ package se.lunest.radixrevolution.model;
 
 public class NumberSystemConverter {
 
-    public String convertFromDecimalToBinary(int decimal) {
+    public String convertFromDecimalToBinary(String decimal) {
         StringBuilder binary = new StringBuilder();
+        int decimalInteger = Integer.parseInt(decimal);
 
-        while (decimal > 0) {
-            int remainder = decimal % 2;
+        while (decimalInteger > 0) {
+            int remainder = decimalInteger % 2;
             binary.insert(0, remainder);
-            decimal /= 2;
+            decimalInteger /= 2;
         }
 
         return binary.toString();
     }
 
-    public int convertFromBinaryToDecimal(String binary) {
+    public String convertFromBinaryToDecimal(String binary) {
         int decimal = 0;
 
         binary = reverseString(binary);
@@ -25,7 +26,7 @@ public class NumberSystemConverter {
             }
         }
 
-        return decimal;
+        return String.valueOf(decimal);
     }
 
     private String reverseString(String toReverse) {
