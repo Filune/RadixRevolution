@@ -1,6 +1,5 @@
 package se.lunest.radixrevolution.model;
 
-
 import org.junit.jupiter.api.Test;
 
 import se.lunest.radixrevolution.controller.ConverterController;
@@ -23,7 +22,7 @@ class NumberSystemConverterTest {
     public void cleanup() {
         converter = null;
     }
-    
+
     @Test
     public void testConvertFromBinaryToDecimal() {
         // Arrange
@@ -48,6 +47,58 @@ class NumberSystemConverterTest {
 
         // Assert
         assertEquals(expectedResult, actualResult, "The expected binary does not match the actual binary.");
+    }
+
+    @Test
+    public void testConvertFromDecimalToOctal() {
+        // Arrange
+        String decimal = "69";
+        String expectedResult = "105";
+
+        // Act
+        String actualResult = converter.convertFromDecimalToOctal(decimal);
+
+        // Assert
+        assertEquals(expectedResult, actualResult, "The expected octal does not match the actual octal.");
+    }
+
+    @Test
+    public void testConvertFromOctalToDecimal() {
+        // Arrange
+        String octal = "105";
+        String expectedResult = "69";
+
+        // Act
+        String actualResult = converter.convertFromOctalToDecimal(octal);
+
+        // Assert
+        assertEquals(expectedResult, actualResult, "The expected decimal does not match the actual decimal.");
+    }
+
+    @Test
+    public void testConvertFromDecimalToHexadecimal() {
+        // Arrange
+        String decimal = "28394";
+        String expectedResult = "6EEA";
+
+        // Act
+        String actualResult = converter.convertFromDecimalToHexadecimal(decimal);
+
+        // Assert
+        assertEquals(expectedResult, actualResult, "The expected decimal does not match the actual decimal.");
+    }
+
+    @Test
+    public void testConvertFromHexadecimalToDecimal() {
+        // Arrange
+        String hexadecimal = "ABC23A";
+        String expectedResult = "11256378";
+
+        // Act
+        String actualResult = converter.convertFromHexadecimalToDecimal(hexadecimal);
+
+        // Assert
+        assertEquals(expectedResult, actualResult, "The expected hexadecimal does not match the actual hexadecimal.");
     }
 
 }
