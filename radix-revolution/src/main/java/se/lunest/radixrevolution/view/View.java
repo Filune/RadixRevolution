@@ -7,7 +7,7 @@ import se.lunest.radixrevolution.controller.ConverterController;
  */
 public class View {
 
-    public static void main(String[] args) {
+    public void sample() {
 
         ConverterController controller = new ConverterController();
 
@@ -36,5 +36,4 @@ public class View {
         System.out.println(output);
         
     }
-
 }
