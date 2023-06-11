@@ -3,7 +3,7 @@ package se.lunest.radixrevolution.view;
 import se.lunest.radixrevolution.controller.ConverterController;
 
 /**
- * A dummy view.
+ * A dummy view with hardcoded calls.
  */
 public class View {
 
@@ -27,6 +27,12 @@ public class View {
         System.out.println(output);
 
         output = controller.convertFromHexadecimalToDecimal("ED");
+        System.out.println(output);
+
+        output = controller.convertFromDecimalToTwosComplement("-924", "19");
+        System.out.println(output);
+
+        output = controller.convertFromTwosComplementToDecimal("010101111");
         System.out.println(output);
         
     }

@@ -1,14 +1,24 @@
 package se.lunest.radixrevolution.controller;
 
 import se.lunest.radixrevolution.model.NumberSystemConverter;
+import se.lunest.radixrevolution.model.TwosComplementConverter;
 
 /**
  * Handles the management of the calls to the model.
  */
 public class ConverterController {
 
-    private NumberSystemConverter converter = new NumberSystemConverter();
-    
+    private NumberSystemConverter converter;
+    private TwosComplementConverter complementConverter;
+
+    /**
+     * Instantiates necessary converters.
+     */
+    public ConverterController() {
+        converter = new NumberSystemConverter();
+        complementConverter = new TwosComplementConverter();
+    }
+
     /**
      * Converts a decimal number to its binary representation.
      *
@@ -67,6 +77,27 @@ public class ConverterController {
      */
     public String convertFromHexadecimalToDecimal(String hexadecimal) {
         return converter.convertFromHexadecimalToDecimal(hexadecimal);
+    }
+
+    /**
+     * Converts a decimal number to its two's complement representation.
+     *
+     * @param decimal the decimal number to convert.
+     * @param bits the number of bits wanted.
+     * @return the two's complement representation of the decimal number.
+     */
+    public String convertFromDecimalToTwosComplement(String decimal, String bits) {
+        return complementConverter.convertFromDecimalToTwosComplement(decimal, bits);
+    }
+
+    /**
+     * Converts a two's converter number to its decimal representation.
+     *
+     * @param twosbinary the two's complement number to convert.
+     * @return the decimal representation of the two's complement number.
+     */
+    public String convertFromTwosComplementToDecimal(String twosbinary) {
+        return complementConverter.convertFromTwosComplementToDecimal(twosbinary);
     }
 
 }
